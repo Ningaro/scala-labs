@@ -1,5 +1,3 @@
-import scala.io.StdIn.readLine
-
 // Включить для тестирования PatternMatching
 //import PatternMatching.*
 // Включить для тестирования Classes
