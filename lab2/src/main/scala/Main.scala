@@ -1,14 +1,30 @@
 import scala.io.StdIn.readLine
 
-import PatternMatching.*
-
+// Включить для тестирования PatternMatching
+//import PatternMatching.*
+// Включить для тестирования Classes
 //import Classes.*
 
 @main
 def Main(): Unit = {
-  PatternMatchingTestData()
+  // Включить для тестирования PatternMatching
+  //PatternMatchingTestData()
+  // Включить для тестирования Classes
+  //ClassesTestData()
 }
 
+/*
+// Включить для тестирования Classes
+def ClassesTestData(): Unit = {
+  println(s"Is cat eats meat? ${new Animal("cat", "mammol", Meat()).eats("meat")}")
+  println(s"Is dog known animal? ${Animal.knownAnimal("dog")}")
+  println(s"Whats happend then you apply carrot: ${Food.apply("carrot")}")
+  println(s"Whats happend then you apply goldfish: ${Animal.apply("goldfish")}")
+}
+*/
+
+/*
+// Включить для тестирования PatternMatching
 def PatternMatchingTestData(): Unit = {
   println("Testing PatternMatching!\n");
 
@@ -48,3 +64,4 @@ def PatternMatchingTestData(): Unit = {
     s"testUpdateFood(new Mammal('Very old mammal', Meat, 169)) = ${testUpdateFood(new Mammal("Very old mammal", Meat, 169))}"
   );
 }
+*/
