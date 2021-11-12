@@ -1,5 +1,7 @@
-import PatternMatching.*
-import Classes.*
+import PatternMatching.PatternMatchingTestData
+import Classes.ClassesTestData
+import Functions.FunctionsTestData
+import HiOrder.HiOrderTestData
 
 @main
 def Main(): Unit = {
@@ -7,4 +9,8 @@ def Main(): Unit = {
   //PatternMatchingTestData()
   // Включить для тестирования Classes
   //ClassesTestData()
+  // Включить для тестирования Functions
+  //FunctionsTestData()
+  // Включить для тестирования HiOrder
+  //HiOrderTestData()
 }
