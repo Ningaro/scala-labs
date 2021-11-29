@@ -1,7 +1,4 @@
-
-
 import scala.annotation.tailrec
-
 /** Реализуйте функции для решения следующих задач.
   * Примечание: Попытайтесь сделать все функции с хвостовой рекурсией, используйте аннотацию для подстверждения.
   * рекурсия будет хвостовой если:
@@ -20,44 +17,73 @@ object RecursiveFunctions {
     loop(as, 0)
   }
 
-  /* a) Напишите функцию которая записывает в обратном порядке список:
+  /** a) Напишите функцию которая записывает в обратном порядке список:
    *        def reverse[A](list: List[A]): List[A]
    */
+  def testReverse[A](list: List[A]): List[A] = {
+    @tailrec
+    def loop(list: List[A], num: List[A]): List[A] = list match {
+      case Cons(x, y) => loop(y, Cons(x, num))
+      case Nil() => num
+    }
+    loop(list, Nil())
+  }
 
-
-
-  // используйте функцию из пункта (a) здесь, не изменяйте сигнатуру
-  def testReverse[A](list: List[A]): List[A] = list
-
-  /* b) Напишите функцию, которая применяет функцию к каждому значению списка:
+  /** b) Напишите функцию, которая применяет функцию к каждому значению списка:
    *        def map[A, B](list: List[A])(f: A => B): List[B]
    */
-
-
-
-  // используйте функцию из пункта  (b) здесь, не изменяйте сигнатуру
-  def testMap[A, B](list: List[A], f: A => B): List[B] = Nil()
+  def testMap[A, B](list: List[A], f: A => B): List[B] = {
+    @tailrec
+    def mapLoop(l: List[A], num: List[B]): List[B] = l match {
+      case Cons(x, y) => mapLoop(y, Cons(f(x), num))
+      case Nil() => testReverse(num)
+    }
+    mapLoop(list,Nil())
+  }
   
-  /* c) Напишите функцию, которая присоединяет один список к другому:
+  /** c) Напишите функцию, которая присоединяет один список к другому:
    *        def append[A](l: List[A], r: List[A]): List[A]
    */
+  def testAppend[A](l: List[A], r: List[A]): List[A] = l match {
+    case Cons(x, y) => Cons(x, testAppend(y, r))
+    case Nil() => r
+  }
 
-
-
-  // используйте функцию из пункта  (c) здесь, не изменяйте сигнатуру
-  def testAppend[A](l: List[A], r: List[A]): List[A] = l
-
-  /* d) Напишите функцию, которая применяет функцию к каждому значению списка:
+  /** d) Напишите функцию, которая применяет функцию к каждому значению списка:
    *        def flatMap[A, B](list: List[A])(f: A => List[B]): List[B]
    * 
    *    она получает функцию, которая создает новый List[B] для каждого элемента типа A в 
    *    списке. Поэтому вы создаете List[List[B]]. 
    */
+  def testFlatMap[A, B](list: List[A], f: A => List[B]): List[B] = {
+    @tailrec
+    def flatMapLoop(l: List[A],num: List[B]): List[B] = l match {
+      case Cons(x, y) => flatMapLoop(y, testAppend(f(x), num))
+      case Nil() => testReverse(num)
+    }
+    flatMapLoop(list, Nil())
+  }
+}
 
-
-
-  // используйте функцию из пункта  (d) здесь, не изменяйте сигнатуру
-  def testFlatMap[A, B](list: List[A], f: A => List[B]): List[B] = Nil()
-
-  /* e) Вопрос: Возможно ли написать функцию с хвостовой рекурсией для `Tree`s? Если нет, почему? */
+def TestRucursiveFunc(): Unit = {
+  val cons = Cons(5, Cons(12, Nil()))
+  println("cons" + cons)
+  println(
+    "testReverse(cons) = "
+    +
+  RecursiveFunctions.testReverse(cons)
+  );
+  println(
+    "testMap(cons, (num: Int) => num * 2) = "
+    +
+  RecursiveFunctions.testMap(cons, (num: Int) => num * 2)
+  );
+  println(
+    RecursiveFunctions.testAppend(cons, Cons(1, Cons(2, Cons(3, Nil()))))
+  );
+  println(
+    "testFlatMap(cons, (x: Int) => Cons(x * 2, Nil())) = "
+    +
+    RecursiveFunctions.testFlatMap(cons, (x: Int) => Cons(x * 2, Nil()))
+  );
 }
