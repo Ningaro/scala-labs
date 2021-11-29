@@ -80,6 +80,8 @@ def TestRucursiveFunc(): Unit = {
   RecursiveFunctions.testMap(cons, (num: Int) => num * 2)
   );
   println(
+    "testAppend(cons, Cons(1, Cons(2, Cons(3, Nil())))) = "
+    +
     RecursiveFunctions.testAppend(cons, Cons(1, Cons(2, Cons(3, Nil()))))
   );
   println(
