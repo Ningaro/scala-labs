@@ -66,6 +66,7 @@ object RecursiveFunctions {
 }
 
 def TestRucursiveFunc(): Unit = {
+  println("\n--- RecursiveFunctions ---")
   val cons = Cons(5, Cons(12, Nil()))
   println("cons" + cons)
   println(

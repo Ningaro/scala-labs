@@ -61,6 +61,7 @@ object Compositions {
 }
 
 def TestCompos(): Unit = {
+  println("\n--- Compositions ---")
   println(
     "testCompose((num: Int) => num + 1)((num: Int) => num - 15)((num: Int) => num * -2)(10)) =  " +
       Compositions.testCompose((num: Int) => num + 1)((num: Int) => num - 15)(
