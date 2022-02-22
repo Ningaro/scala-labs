@@ -64,9 +64,9 @@ def TestCompos(): Unit = {
   println("\n--- Compositions ---")
   println(
     "testCompose((num: Int) => num + 1)((num: Int) => num - 15)((num: Int) => num * -2)(10)) =  " +
-      Compositions.testCompose((num: Int) => num + 1)((num: Int) => num - 15)(
-        (num: Int) => num * -2
-      )(10)
+      Compositions.testCompose((num: Int) => num + 1)((num: Int) => num - 8)(
+        (num: Int) => num * 2
+      )(9)
   );
   println(
     "testMapFlatMap(Some(_))(Some(_))(Some(_))(Some(List(1,2))) = " +

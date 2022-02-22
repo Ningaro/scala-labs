@@ -7,5 +7,5 @@ import Strings$package.TestStrings
   //TestAdts()
   //TestMaps()
   //TestSequence()
-  TestStrings()
+  //TestStrings()
 }
